@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar";
 import { useCart } from "react-use-cart";
 import Image from "next/image";
 
