@@ -87,7 +87,8 @@ function Navbar() {
                 </a>
               </li>
             </Link>
-            <li className="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
+            <Link href="/cart">
+          <li className="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
               <a href="#" role="button" className="relative flex">
                 <svg
                   className="flex-1 w-8 h-8 fill-current"
@@ -101,6 +102,8 @@ function Navbar() {
               </a>
             </li>
 
+          
+          </Link>
             {/* <li>
                 <a
                   href="#"

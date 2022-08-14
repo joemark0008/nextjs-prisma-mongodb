@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { useCart } from "react-use-cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductCard(props) {
   const { addItem } = useCart();
@@ -8,9 +10,10 @@ function ProductCard(props) {
   const image = props.product.images[0];
   const { title, price, rating } = props.product;
 
-  const handleAddCart = () =>{
- addItem(props.product)
-  }
+  const handleAddCart = () => {
+    addItem(props.product);
+    toast("Item Added");
+  };
 
   return (
     <>
@@ -95,6 +98,7 @@ function ProductCard(props) {
             >
               Add to cart
             </a>
+            <ToastContainer />
           </div>
         </div>
       </div>
