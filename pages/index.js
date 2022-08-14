@@ -8,7 +8,7 @@ function Home() {
   //   console.log(products);
   return (
     <>
-      <div className="flex flex-wrap gap-4 mx-auto max-w-screen-xl">
+      <div className="flex flex-wrap gap-4 mx-auto max-w-screen-xl text-center">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
