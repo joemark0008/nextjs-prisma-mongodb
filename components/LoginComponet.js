@@ -5,7 +5,6 @@ function LoginComponet() {
     <>
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col max-w-screen-lg mx-auto">
         <div className="mb-4">
-          <p>{name}</p>
           <label className="block text-grey-darker text-sm font-bold mb-2">
             Username
           </label>
