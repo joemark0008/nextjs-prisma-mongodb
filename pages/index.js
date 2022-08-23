@@ -1,18 +1,42 @@
 import React, { useState } from "react";
-// import { CartProvider } from "react-use-cart";
-// import Navbar from "../components/Navbar";
-import ProductCard from "../components/ProductCard";
-import { products } from "../data/products";
+import LoginComponet from "../components/LoginComponet";
 
 function Home() {
-  //   console.log(products);
+  const [selected, setSelected] = useState(" ");
+  const [toggle, settoggle] = useState(false);
+
   return (
     <>
-      <div className="flex flex-wrap gap-4 mx-auto max-w-screen-xl text-center">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      <div
+        className={`${
+          toggle ? "hidden" : " max-w-screen-xl mx-auto mt-10 px-2 py-2 "
+        }`}
+      >
+        <button
+          onClick={() => {
+            setSelected("Login");
+            settoggle(!toggle);
+          }}
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Sign up
+        </button>
+        <button
+          type="button"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Contact
+        </button>
       </div>
+
+      {selected == "Login" && <LoginComponet />}
     </>
   );
 }
