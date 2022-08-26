@@ -1,42 +1,39 @@
 import React, { useState } from "react";
-import LoginComponet from "../components/LoginComponet";
+
+const Input = () => {
+  return (
+    <div className="flex w-1/2  ">
+      <label className=" mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 ml-10">
+        input
+      </label>
+      <input
+        type="text"
+        id="small-input"
+        className="block p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+      />
+    </div>
+  );
+};
 
 function Home() {
-  const [selected, setSelected] = useState(" ");
-  const [toggle, settoggle] = useState(false);
+  const [inputList, setInputList] = useState([]);
+
+  const handleClick = () => {
+    setInputList(inputList.concat(<Input key={inputList.length} />));
+  };
 
   return (
     <>
-      <div
-        className={`${
-          toggle ? "hidden" : " max-w-screen-xl mx-auto mt-10 px-2 py-2 "
-        }`}
-      >
+      <div className="flex justify-center mt-10">
         <button
-          onClick={() => {
-            setSelected("Login");
-            settoggle(!toggle);
-          }}
+          onClick={handleClick}
           type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
         >
-          Login
-        </button>
-        <button
-          type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Sign up
-        </button>
-        <button
-          type="button"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        >
-          Contact
+          ADD
         </button>
       </div>
-
-      {selected == "Login" && <LoginComponet />}
+      <div className="flex flex-col w-full gap-4">{inputList}</div>
     </>
   );
 }
